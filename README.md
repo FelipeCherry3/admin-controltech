@@ -3,7 +3,7 @@
 Desenvolvido em Angular, Controltech-Admin é a interface gráfica em ambiente web para um gerenciamento de Ativos e Softwares de maneira intuitíva e flexível 
 
 ## Cenários 
-Vídeo no youtube -> (link)[https://www.youtube.com/watch?v=T25SOe8wn1M]
+Vídeo no youtube -> [link](https://www.youtube.com/watch?v=u1PR1I0n8LI)
 
 
 # Cenário: Usuário cadastra Software e insere informações corretas
