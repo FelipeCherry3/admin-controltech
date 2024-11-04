@@ -29,6 +29,7 @@ import { DialogCrudLicenceComponent } from './licencas/dialog-crud-licence/dialo
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
+import { DashboardComponent } from './dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { MatSelectModule } from '@angular/material/select';
     LoginComponentSuccessfulDialogComponent,
     LoginComponentFailDialogComponent,
     DialogCrudLicenceComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

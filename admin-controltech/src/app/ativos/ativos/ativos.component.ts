@@ -28,7 +28,7 @@ export class AtivosComponent implements OnInit {
   ativos: Ativos[] = [];
   formData = this.ativos;
 
-  displayedColumns = ['id','nome','qntEstoque','valorItem','statusAtivo'];
+  displayedColumns = ['id','nome','qntEstoque','valorItem','statusAtivo', 'delete'];
   clickedRows = new Set<Ativos>();
   isNavOpen: boolean = false;
   constructor(private navBarService: NavBarServiceService, public dialog: MatDialog, private AtivosService: AtivosService) {
@@ -47,6 +47,14 @@ export class AtivosComponent implements OnInit {
       this.ativos = ativos;
       console.log(this.ativos);
     })
+  }
+  deleteAtivo(ativo: any) {
+    // Lógica para excluir o ativo
+    this.AtivosService.deleteSoftware(ativo).subscribe(() => {  
+      this.getAtivos();
+    }); 
+    console.log('Ativo a ser excluído:', ativo);
+    // Aqui você pode chamar o serviço para excluir o ativo do backend e atualizar a lista de ativos
   }
 
 }

@@ -1,0 +1,49 @@
+<div class="dashboard-container">
+    <h2>Dashboard de Ativos e Licenças</h2>
+    
+    <!-- Cards de Estatísticas -->
+    <div class="stats-cards">
+      <div class="card stat-card">
+        <h3>Total de Ativos</h3>
+        <p>{{ dashboardData?.totalAtivos || 0 }}</p>
+      </div>
+      
+      <div class="card stat-card">
+        <h3>Total em Valor</h3>
+        <p>{{ dashboardData?.totalValor | currency: 'BRL' }}</p>
+      </div>
+      
+      <div class="card stat-card">
+        <h3>Total de Licenças</h3>
+        <p>{{ dashboardData?.totalLicencas || 0 }}</p>
+      </div>
+    </div>
+    
+    <!-- Tabela de Licenças Expirando -->
+    <div class="expiring-licenses">
+      <h3>Licenças Expirando em Breve</h3>
+      
+      <table *ngIf="dashboardData?.licencasExpirando?.length; else noLicenses">
+        <thead>
+          <tr>
+            <th>Software</th>
+            <th>Data de Expiração</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let software of dashboardData.licencasExpirando">
+            <td>{{ software.produto.nome }}</td>
+            <td>{{ software.data_expira | date: 'dd/MM/yyyy' }}</td>
+            <td class="expiring">Expirando em breve</td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <!-- Exibe mensagem se não houver licenças expirando -->
+      <ng-template #noLicenses>
+        <p>Não há licenças expirando em breve.</p>
+      </ng-template>
+    </div>
+  </div>
+  

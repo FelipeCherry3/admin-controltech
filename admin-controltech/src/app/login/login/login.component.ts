@@ -37,7 +37,7 @@ export class LoginComponent  {
         console.log('Usuário autenticado com sucesso!');
         this.openSuccessDialog();
         setTimeout(() => {
-          window.location.href = '/ativos';
+          window.location.href = '/dashboard';
         }, 2000);
       } else {
         console.log('Credenciais inválidas.');

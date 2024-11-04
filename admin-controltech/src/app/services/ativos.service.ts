@@ -9,10 +9,11 @@ import { Software } from '../ativos/ativos/model/software';
   providedIn: 'root'
 })
 export class AtivosService {
-  private baseUrl: string = "https://controltech-backend.azurewebsites.net/";
-  private urlSendFisico: string = "https://controltech-backend.azurewebsites.net/cadastrarTeste";
-  private urlativos: string = "https://controltech-backend.azurewebsites.net/ativos/cadastrar"
-  private urlSendSoftware: string = "https://controltech-backend.azurewebsites.net/software/cadastrarTeste"
+  private baseUrl: string = "http://localhost:8080/";
+  private urlSendFisico: string = "http://localhost:8080/cadastrarTeste";
+  private urlativos: string = "http://localhost:8080/ativos/cadastrar"
+  private urlSendSoftware: string = "http://localhost:8080/software/cadastrarTeste"
+  private idAtivo: number  | undefined | null = 0;
   constructor(private http: HttpClient) {
    }
   
@@ -30,6 +31,12 @@ export class AtivosService {
   saveSoftware(formData: AtivoMiddle): Observable<AtivoMiddle> {
 
     return this.http.post<any>(this.urlSendSoftware,formData)
+  }
+  deleteSoftware(formData: Ativos): Observable<Ativos> {
+    this.idAtivo = formData.id;
+    console.log(this.idAtivo);
+    const url = `http://localhost:8080/ativos/deletar/${this.idAtivo}`;
+    return this.http.delete<Ativos>(url);
   }
 
   saveAtivos(formdata: Ativos): Observable<Ativos>{

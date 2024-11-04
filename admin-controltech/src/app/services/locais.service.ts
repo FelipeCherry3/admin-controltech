@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LocaisService {
-  private baseUrl: string = "https://controltech-backend.azurewebsites.net/";
+  private baseUrl: string = "http://localhost:8080/";
   constructor(private http: HttpClient) { }
 
   getLocais(): Observable<any[]> {
